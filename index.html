@@ -3,30 +3,277 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Personal research and technology portfolio" />
-  <title>Research Portfolio</title>
+  <meta
+    name="description"
+    content="Academic portfolio, research, publications and projects"
+  />
+
+  <title>Academic Portfolio</title>
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ===================== NAVIGATION ===================== -->
   <header class="topbar">
-    <a class="brand" href="#home" aria-label="Go to home"><span class="brand-mark">✦</span><span data-field="name">Your Name</span></a>
-    <nav aria-label="Primary navigation" id="nav"><a href="#about">About</a><a href="#research">Research</a><a href="#projects">Projects</a><a href="#publications">Publications</a><a href="#contact">Contact</a></nav>
-    <div class="nav-actions"><button class="icon-button" id="themeToggle" aria-label="Toggle color theme" title="Toggle theme">☾</button><button class="icon-button menu" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">☰</button></div>
+    <div class="nav-container">
+
+      <a class="brand" href="#home" data-field="name">
+        Your Name
+      </a>
+
+      <nav id="nav" aria-label="Primary navigation">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#projects">Projects</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button
+        id="menuToggle"
+        class="menu-button"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+
+    </div>
   </header>
+
+
   <main id="main">
-    <section id="home" class="hero wrap">
-      <div class="hero-content reveal"><p class="eyebrow"><span class="pulse-dot"></span> RESEARCH · ENGINEERING · CREATIVITY</p><h1>Hello, I'm <span class="gradient" data-field="name">Your Name</span><span class="cursor" aria-hidden="true">_</span></h1><p class="role" id="animatedRole">Research Scholar</p><p class="intro" data-field="intro">I work at the intersection of machine learning, trustworthy systems, and practical research.</p><div class="actions"><a href="#projects" class="button primary">Explore projects <span aria-hidden="true">↗</span></a><a href="#contact" class="button secondary">Let's connect</a></div><div class="social" id="socialLinks"></div></div>
-      <div class="hero-art" aria-hidden="true"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="orbit"><span class="orbit-center">AI</span><span class="planet p1">ML</span><span class="planet p2">FL</span><span class="planet p3">SEC</span></div><div class="code-float">&lt; explore /&gt;<br><span>ideas → impact</span></div></div>
+
+    <!-- ===================== HOME ===================== -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+
+        <div class="hero-content">
+
+          <p class="section-label">
+            RESEARCHER · COMPUTER SCIENCE
+          </p>
+
+          <h1 data-field="name">
+            Your Name
+          </h1>
+
+          <p id="animatedRole" class="hero-role">
+            Research Scholar
+          </p>
+
+          <p class="hero-intro" data-field="intro">
+            I work on machine learning, federated learning,
+            trustworthy artificial intelligence, and intelligent systems.
+          </p>
+
+          <div class="hero-actions">
+
+            <a href="#research" class="button primary">
+              Research
+            </a>
+
+            <a href="#publications" class="button secondary">
+              Publications
+            </a>
+
+            <a id="cvButton" class="button secondary" href="#" target="_blank">
+              CV
+            </a>
+
+          </div>
+
+          <div id="socialLinks" class="social-links"></div>
+
+        </div>
+
+
+        <!-- PROFILE PHOTO -->
+        <div class="profile-photo-container">
+
+          <div class="profile-photo-frame">
+
+            <img
+              id="profileImage"
+              src="assets/profile.jpg"
+              alt="Profile photograph"
+              class="profile-photo"
+            />
+
+            <div id="photoFallback" class="photo-fallback" hidden>
+              <span>Profile Photo</span>
+              <small>assets/profile.jpg</small>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
     </section>
-    <section id="about" class="section alternate"><div class="wrap"><div class="section-header reveal"><p class="eyebrow">01 / ABOUT</p><h2>Curiosity is my <span class="gradient">starting point.</span></h2></div><div class="about-layout"><p class="large-copy reveal" data-field="about">I'm a researcher who enjoys building systems, turning complex ideas into experiments, and finding creative ways to communicate results.</p><div class="quick-facts reveal" id="facts"></div></div></div></section>
-    <section id="research" class="section"><div class="wrap"><div class="section-header reveal"><p class="eyebrow">02 / RESEARCH</p><h2>Problems I'm <span class="gradient">exploring.</span></h2><p class="muted">My current interests, methods, and directions.</p></div><div id="researchCards" class="card-grid"></div></div></section>
-    <section id="projects" class="section alternate"><div class="wrap"><div class="section-header reveal"><p class="eyebrow">03 / PROJECTS</p><h2>Things I've <span class="gradient">built.</span></h2><p class="muted">Filter by topic and click any project to explore the details.</p></div><div class="filters reveal" id="filters" aria-label="Project filters"></div><div id="projectCards" class="card-grid projects"></div></div></section>
-    <section id="publications" class="section"><div class="wrap"><div class="section-header reveal"><p class="eyebrow">04 / PUBLICATIONS</p><h2>Research <span class="gradient">outputs.</span></h2></div><div id="publicationList" class="publication-list"></div></div></section>
-    <section id="contact" class="section alternate"><div class="wrap contact-wrap reveal"><p class="eyebrow">05 / CONTACT</p><h2>Let's build something <span class="gradient">meaningful.</span></h2><p class="muted">Have a research idea, collaboration, or question? I'd love to hear from you.</p><a id="emailButton" class="button primary" href="mailto:you@example.com">Send an email ↗</a><p id="emailText" class="email-small"></p></div></section>
+
+
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="section section-alt">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="section-label">ABOUT</p>
+          <h2>About me</h2>
+        </div>
+
+        <div class="about-grid">
+
+          <div>
+            <p class="about-text" data-field="about">
+              I am a researcher interested in machine learning,
+              distributed learning, and trustworthy intelligent systems.
+            </p>
+          </div>
+
+          <div id="facts" class="facts"></div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================== RESEARCH ===================== -->
+    <section id="research" class="section">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="section-label">RESEARCH</p>
+          <h2>Research interests</h2>
+
+          <p class="section-description">
+            Topics and research problems I am currently exploring.
+          </p>
+        </div>
+
+        <div id="researchCards" class="research-grid"></div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================== PROJECTS ===================== -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="section-label">PROJECTS</p>
+          <h2>Selected projects</h2>
+
+          <p class="section-description">
+            Selected research, engineering, and academic projects.
+          </p>
+        </div>
+
+        <div
+          id="filters"
+          class="filters"
+          aria-label="Project filters"
+        ></div>
+
+        <div id="projectCards" class="project-grid"></div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================== PUBLICATIONS ===================== -->
+    <section id="publications" class="section">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="section-label">PUBLICATIONS</p>
+          <h2>Publications</h2>
+
+          <p class="section-description">
+            Papers, preprints, and other research outputs.
+          </p>
+        </div>
+
+        <div id="publicationList" class="publication-list"></div>
+
+      </div>
+    </section>
+
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="section section-alt">
+      <div class="container contact-container">
+
+        <p class="section-label">CONTACT</p>
+
+        <h2>Get in touch</h2>
+
+        <p class="contact-text">
+          I am always interested in research discussions,
+          collaborations, and new academic opportunities.
+        </p>
+
+        <a
+          id="emailButton"
+          class="button primary"
+          href="mailto:you@example.com"
+        >
+          Email me
+        </a>
+
+        <p id="emailText" class="email-text"></p>
+
+      </div>
+    </section>
+
   </main>
-  <footer><span>© <span id="year"></span> <span data-field="name">Your Name</span>.</span><span>Made with curiosity ✦</span><a href="#home">Back to top ↑</a></footer>
-  <dialog id="projectDialog" aria-labelledby="modalTitle"><button id="closeDialog" class="dialog-close" aria-label="Close project details">✕</button><div id="modalBody"></div></dialog>
+
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer>
+    <div class="container footer-content">
+
+      <span>
+        © <span id="year"></span>
+        <span data-field="name">Your Name</span>
+      </span>
+
+      <span>
+        Academic Portfolio
+      </span>
+
+      <a href="#home">
+        Back to top ↑
+      </a>
+
+    </div>
+  </footer>
+
+
+  <!-- ===================== PROJECT DIALOG ===================== -->
+  <dialog id="projectDialog">
+
+    <button
+      id="closeDialog"
+      class="dialog-close"
+      aria-label="Close project details"
+    >
+      ×
+    </button>
+
+    <div id="modalBody"></div>
+
+  </dialog>
+
+
   <script src="script.js" defer></script>
+
 </body>
 </html>
